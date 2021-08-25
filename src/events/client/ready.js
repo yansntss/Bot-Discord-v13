@@ -8,5 +8,6 @@ module.exports = class extends Event {
   }
   run = () => {
     console.log(`Bot ${(this.client.user.username)} logado com sucesso em ${this.client.guilds.cache.size} servidores`)
+    this.client.registryCommands()
   }
 }

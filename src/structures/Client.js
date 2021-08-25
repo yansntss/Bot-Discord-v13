@@ -11,6 +11,14 @@ module.exports = class extends Client {
     this.loadCommands()
     this.loadEvents()
   }
+
+  registryCommands() {
+    //temporaria, vou registrar em um servidor
+    this.guilds.cache.get('737819325666295879').commands.set(this.commands)
+    
+    //this.application.commands.set(this.commands)  descomentar para todo mundo usar o bot
+  }
+
   loadCommands(path = 'src/commands') {
     const categories = readdirSync(path)
 
@@ -40,7 +48,7 @@ module.exports = class extends Client {
 
         this.on(evt.name, evt.run)
         console.log(`Comando ${evt.name} carregado`)
-       
+
       }
     }
   }
